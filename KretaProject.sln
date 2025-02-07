@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kreta.Backend", "Kreta.Backend\Kreta.Backend.csproj", "{8CE98445-B717-439C-85E8-51841E513AB2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kreta.HttpService", "Kreta.HttpService\Kreta.HttpService.csproj", "{154422E0-BA95-426D-8BD9-DF8D5E09D107}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kreta.Shared", "Kreta.Shared\Kreta.Shared.csproj", "{18FDE173-D262-4342-B788-5D180D02F9A4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kreta.Client", "KretaBlazorWeb\Kreta\Kreta.Client\Kreta.Client.csproj", "{EE61E37C-00E1-4E74-9A55-693D18B34E48}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kreta.ViewModel", "Kreta.ViewModel\Kreta.ViewModel.csproj", "{B940DC5E-7F4E-4011-B26A-426D55B5E173}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KretaWeb", "KretaBlazorWeb\Kreta\Kreta\KretaWeb.csproj", "{E4B83D6D-6B72-4518-A29A-65F96C12CA84}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kreta.Desktop", "Kreta.Desktop\Kreta.Desktop.csproj", "{6F412292-FB00-4787-BC45-630E6EA86ABF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8CE98445-B717-439C-85E8-51841E513AB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CE98445-B717-439C-85E8-51841E513AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CE98445-B717-439C-85E8-51841E513AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CE98445-B717-439C-85E8-51841E513AB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{154422E0-BA95-426D-8BD9-DF8D5E09D107}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{154422E0-BA95-426D-8BD9-DF8D5E09D107}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{154422E0-BA95-426D-8BD9-DF8D5E09D107}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{154422E0-BA95-426D-8BD9-DF8D5E09D107}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18FDE173-D262-4342-B788-5D180D02F9A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18FDE173-D262-4342-B788-5D180D02F9A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18FDE173-D262-4342-B788-5D180D02F9A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18FDE173-D262-4342-B788-5D180D02F9A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE61E37C-00E1-4E74-9A55-693D18B34E48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE61E37C-00E1-4E74-9A55-693D18B34E48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE61E37C-00E1-4E74-9A55-693D18B34E48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE61E37C-00E1-4E74-9A55-693D18B34E48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B940DC5E-7F4E-4011-B26A-426D55B5E173}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B940DC5E-7F4E-4011-B26A-426D55B5E173}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B940DC5E-7F4E-4011-B26A-426D55B5E173}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B940DC5E-7F4E-4011-B26A-426D55B5E173}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4B83D6D-6B72-4518-A29A-65F96C12CA84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4B83D6D-6B72-4518-A29A-65F96C12CA84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4B83D6D-6B72-4518-A29A-65F96C12CA84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4B83D6D-6B72-4518-A29A-65F96C12CA84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F412292-FB00-4787-BC45-630E6EA86ABF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F412292-FB00-4787-BC45-630E6EA86ABF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F412292-FB00-4787-BC45-630E6EA86ABF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F412292-FB00-4787-BC45-630E6EA86ABF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4A53F9AB-2DEF-43DB-B019-1FD213DF3CFD}
+	EndGlobalSection
+EndGlobal

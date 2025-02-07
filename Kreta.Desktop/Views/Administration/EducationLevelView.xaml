@@ -1,0 +1,97 @@
+﻿<UserControl x:Class="Kreta.Desktop.Views.Administration.EducationLevelView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xwpftk="http://schemas.xceed.com/wpf/xaml/toolkit" 
+             xmlns:local="clr-namespace:Kreta.Desktop.Views.Administration"
+             xmlns:viewmodel="clr-namespace:Kreta.Desktop.ViewModels.Administration"
+             d:DataContext="{d:DesignInstance Type=viewmodel:EducationLevelViewModel, IsDesignTimeCreatable=True}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <d:DesignerProperties.DesignStyle>
+        <Style TargetType="UserControl">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Height" Value="700" />
+            <Setter Property="Width" Value="900" />
+        </Style>
+    </d:DesignerProperties.DesignStyle>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="400"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Content="{Binding Title}"></Label>
+        <Label Grid.Row="2" Grid.Column="0">Tanulmányi szint neve:</Label>
+        <Label Grid.Row="3" Grid.Column="0">Képzési idő hossza:</Label>
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.ColumnSpan="2" Margin="10 2 2 2">
+            <!-- Gombok helye -->
+            <Button  Margin="0 10 2 2" 
+               HorizontalAlignment="Right" 
+               MinWidth="80" 
+                Content="Új adat"
+                Command="{Binding DoNewCommand}"
+       />
+            <Button  Margin="0 10 2 2" 
+               HorizontalAlignment="Right" 
+               MinWidth="80" 
+               Content="Mentés"
+                Command="{Binding DoSaveCommand}"
+                CommandParameter="{Binding SelectedEducationLevel}"
+       />
+            <Button  Margin="0 10 2 2"
+               HorizontalAlignment="Right"
+               MinWidth="80"
+               Content="Törlés"
+                Command="{Binding DoRemoveCommand}"
+                CommandParameter="{Binding SelectedEducationLevel}"
+       />
+        </StackPanel>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="2 2 2 2" Padding="0 2"
+                 Text="{Binding SelectedEducationLevel.StudentEducationLevel}">
+        </TextBox>
+        <xwpftk:IntegerUpDown HorizontalAlignment="Left" MinWidth="40" Grid.Row="3" Grid.Column="1" Margin="2 2 100 2"
+                              Minimum="1" Maximum="8" Value="{Binding SelectedEducationLevel.DurationOfEducation}">
+        </xwpftk:IntegerUpDown>
+        <ListBox Grid.Row="5"
+                Grid.ColumnSpan="2" 
+                Margin="10 2 10 10"
+                ItemsSource="{Binding EducationLevels}"
+                SelectedItem="{Binding SelectedEducationLevel}" >
+        </ListBox>
+
+        <Label Grid.Row="4" Grid.Column="3" VerticalAlignment="Bottom">A tanulmányi szinthez tartozó diákok:</Label>
+        <ListBox Grid.Row="5"
+                 Grid.Column="3"
+                 Margin="10 2 10 10"  
+                 ItemsSource="{Binding StudentsWithEducationLevel}"
+                 SelectedItem="{Binding SelectedStudentWithEducationLevel}"
+        />
+        <StackPanel Grid.Row="6" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button FontFamily="Segoe UI Symbol" MinWidth="40" Content="&#xE1FD;"
+                    Command="{Binding MoveStudentToWithoutEducationLevelCommand}">
+            </Button>
+            <Button FontFamily="Segoe UI Symbol" MinWidth="40" Content="&#xE110;"
+                    Command="{Binding MoveStudentToWithEducationLevelCommand}"
+                    >
+            </Button>
+        </StackPanel>
+        <Label Grid.Row="7" Grid.Column="3" VerticalAlignment="Bottom">Tanulmányi szinttel nem rendelkező diákok:</Label>
+        <ListBox Grid.Row="8" Grid.Column="2" Margin="10,4,10,8"
+                 ItemsSource="{Binding StudentsWithoutEducationLevel}"
+                 SelectedItem="{Binding SelectedStudentWithoutEducationLevel}">
+        </ListBox>
+    </Grid>
+</UserControl>

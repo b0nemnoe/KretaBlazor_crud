@@ -1,0 +1,30 @@
+﻿@namespace Kreta.Components.Pages.SchoolCitizens
+@page "/schoolcitizens/student"
+@page "/schoolcitizens/student/index"
+
+<MudText Typo="Typo.h3" Class="mt-4">Diákok</MudText>
+
+@if (StudentViewModel is null)
+{
+    <MudText>Diák adatokat nem lehet betölteni...</MudText>
+}
+else
+{
+    <MudTable 
+        T="Student"
+        Items="@StudentViewModel.Students"
+        >
+        <RowTemplate>
+            <MudTd DataLabel="Vezetéknév">@context.LastName</MudTd>
+            <MudTd DataLabel="Keresztnév">@context.FirstName</MudTd>
+            <MudTd DataLabel="Születési idő">@context.BirthDay</MudTd>
+            <MudTd DataLabel="Képzés típusa">@context.EducationLevel</MudTd>
+            <MudIconButton Icon="@Icons.Material.Filled.Preview" Color="Color.Success"></MudIconButton>
+            <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Default"></MudIconButton>
+            <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error"></MudIconButton>
+        </RowTemplate>
+    </MudTable>
+}
+@code {
+
+}

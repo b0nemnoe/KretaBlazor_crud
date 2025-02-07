@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="Kreta.Desktop.Views.Administration.AdministrationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:viewmodel="clr-namespace:Kreta.Desktop.ViewModels.Administration"
+             d:DataContext="{d:DesignInstance Type=viewmodel:AdministrationViewModel, IsDesignTimeCreatable=True}"
+             xmlns:local="clr-namespace:Kreta.Desktop.Views.Administration"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <local:AdministrationMenu Grid.Row="0"></local:AdministrationMenu>
+        <ContentControl Grid.Row="1" Content="{Binding CurrentAdministrationChildView }"></ContentControl>
+    </Grid>
+</UserControl>

@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="Kreta.Desktop.Views.SchoolSubjects.SubjectsManagmentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Kreta.Desktop.Views.SchoolSubjects"
+             xmlns:viewModels="clr-namespace:Kreta.Desktop.ViewModels.SchoolSubjects"
+             xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
+             d:DataContext="{d:DesignInstance Type=viewModels:SubjectsManagmentViewModel, IsDesignTimeCreatable=True}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <d:DesignerProperties.DesignStyle>
+        <Style TargetType="UserControl">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Height" Value="700" />
+            <Setter Property="Width" Value="900" />
+        </Style>
+    </d:DesignerProperties.DesignStyle>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Content="{Binding Title}"/>
+        <Label Grid.Row="2" Grid.Column="0">Tantárgy neve:</Label>
+        <Label Grid.Row="3" Grid.Column="0">Tantárgy rövid neve:</Label>
+        <Label Grid.Row="4" Grid.Column="0">Kötelező érettségi tárgy:</Label>
+        <Label Grid.Row="5" Grid.Column="0">Választható érettségi tárgy:</Label>
+        <Label Grid.Row="6" Grid.Column="0">Tantárgy típusa:</Label>
+        <StackPanel Orientation="Horizontal" Grid.Row="7" Grid.ColumnSpan="2" Margin="10 2 2 2">
+            <Button  Margin="0 10 2 2" 
+               HorizontalAlignment="Right" 
+               MinWidth="80" 
+               Content="Új adat"
+               />
+            <Button  Margin="0 10 2 2" 
+               HorizontalAlignment="Right" 
+               MinWidth="80" 
+               Content="Mentés"
+               />
+            <Button  Margin="0 10 2 2"
+               HorizontalAlignment="Right"
+               MinWidth="80"
+               Content="Törlés"
+               />
+        </StackPanel>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding SelectedSubject.SubjectName}"></TextBox>
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding SelectedSubject.ShortName}"></TextBox>
+        <CheckBox Grid.Row="4" Grid.Column="1" Margin="2 6 2 2" IsChecked="{Binding SelectedSubject.CompulsoryExaminationSubject}"></CheckBox>
+        <CheckBox Grid.Row="5" Grid.Column="1" Margin="2 6 2 2" IsChecked="{Binding SelectedSubject.OptionalExaminationSubject}"></CheckBox>
+        <ComboBox Grid.Row="6" Grid.Column="1" Margin="2 2 2 2"></ComboBox>
+        <ListBox Grid.Row="8"  Grid.ColumnSpan="2" Margin="2 2 2 2"
+                 ItemsSource="{Binding Subjects}"
+                 SelectedItem="{Binding SelectedSubject}">
+        </ListBox>
+        <Label Grid.Row="2" Grid.Column="2">Tantárgyat tanuló osztályok:</Label>
+        <ListBox Grid.Row="3" Grid.RowSpan="3" Grid.Column="3"
+                 ItemsSource="{Binding SelectedSubject.SchoolClassSubjects}"
+                 SelectedItem="{Binding SelectedSchoolClassSubjects}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding SchoolClass.SchoolClassName}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Label Grid.Row="6" Grid.Column="3" VerticalAlignment="Bottom">Tantárgyat nem tanuló osztályok:</Label>
+        <StackPanel Grid.Row="7" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Margin="2 2 2 2" FontFamily="Segoe UI Symbol" MinWidth="40" Content="&#xE1FD;"
+                    Command="{Binding MoveToSchoolClassNotStudiedSubjectCommand}">
+            </Button>
+            <Button Margin="2 2 2 2" FontFamily="Segoe UI Symbol" MinWidth="40" Content="&#xE110;"
+                    Command="{Binding MoveToSchoolClassStudiedSubjectCommand}">
+            </Button>
+        </StackPanel>
+        <ListBox Grid.Row="8" Grid.Column="3"
+                 Margin="10 2 10 10"
+                 ItemsSource="{Binding SchoolClassesWhoNotStudySubject}"
+                 SelectedItem="{Binding SelectedSchoolClassesWhoNotStudySubject}"
+        />
+    </Grid>
+</UserControl>

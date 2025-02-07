@@ -1,0 +1,34 @@
+﻿@namespace Kreta.Components.Pages.SchoolCitizens
+@page "/schoolcitizens/typeofeducation"
+@page "/schoolcitizens/typeofeducation/index"
+
+<MudText Typo="Typo.h3" Class="mt-4">Képzési Típusok</MudText>
+
+@if (TypeOfEducationViewModel is null)
+{
+    <MudText>Képzési típus adatokat nem lehet betölteni...</MudText>
+}
+else
+{
+    <MudTable T="TypeOfEducation"
+              Items="@TypeOfEducationViewModel.TypeOfEducations">
+        <RowTemplate>
+            <MudTd DataLabel="Képzés neve">@context.EducationName</MudTd>
+            <MudIconButton Icon="@Icons.Material.Filled.Preview" Color="Color.Success"></MudIconButton>
+            <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Default"></MudIconButton>
+            <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error"></MudIconButton>
+        </RowTemplate>
+    </MudTable>
+}
+@code {
+    [Inject] ITypeOfEducationViewModel? TypeOfEducationViewModel { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (TypeOfEducationViewModel is not null)
+        {
+            await TypeOfEducationViewModel.InitializeAsync();
+        }
+        await base.OnInitializedAsync();
+    }
+}
