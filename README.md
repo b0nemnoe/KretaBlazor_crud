@@ -1,1 +1,1 @@
-Blazor projekt nulláról
+typeOfEducation adatok megjelennek blazoron
